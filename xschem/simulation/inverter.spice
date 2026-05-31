@@ -1,0 +1,6 @@
+** sch_path: /home/anton/projects/ttgf26a-analog/xschem/inverter.sch
+.subckt inverter VCC VSS A Y
+*.PININFO VCC:B VSS:B A:I Y:O
+M1 Y A VSS VSS nfet_03v3 L=0.30u W=0.25u nf=1
+M2 Y A VCC VCC pfet_03v3 L=0.30u W=0.25u nf=1
+.ends

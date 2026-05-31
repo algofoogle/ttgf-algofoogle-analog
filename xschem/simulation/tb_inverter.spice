@@ -1,0 +1,35 @@
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/tb_inverter.sch
+**.subckt tb_inverter
+x1 VCC GND Y A inverter
+V1 VCC GND 3.3
+R1 Y GND 10Meg
+V2 A GND PULSE(0V 3.3V 1ns 5ns 5ns 10ns 30ns)
+**** begin user architecture code
+
+.include /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+
+
+.control
+tran 1p 200ns
+write tb_inverter.raw
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  inverter.sym # of pins=4
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/inverter.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/inverter.sch
+.subckt inverter VCC VSS Y A
+*.iopin VCC
+*.iopin VSS
+*.ipin A
+*.opin Y
+XM1 Y A VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 Y A VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+.end

@@ -1,0 +1,25 @@
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/basicring9.sch
+.subckt basicring9 osc_out VCC VSS
+*.PININFO osc_out:O VCC:B VSS:B
+x1 VCC VSS net1 osc_out inverter
+x2 VCC VSS net2 net1 inverter
+x3 VCC VSS net3 net2 inverter
+x4 VCC VSS net4 net3 inverter
+x5 VCC VSS net5 net4 inverter
+x6 VCC VSS net6 net5 inverter
+x7 VCC VSS net7 net6 inverter
+x8 VCC VSS net8 net7 inverter
+x9 VCC VSS osc_out net8 inverter
+.ends
+
+* expanding   symbol:  inverter.sym # of pins=4
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/inverter.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/inverter.sch
+.subckt inverter VCC VSS Y A
+*.PININFO VCC:B VSS:B A:I Y:O
+XM1 Y A VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 Y A VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+

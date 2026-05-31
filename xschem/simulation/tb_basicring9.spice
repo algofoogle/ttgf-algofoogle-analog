@@ -1,0 +1,52 @@
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/tb_basicring9.sch
+**.subckt tb_basicring9
+x1 VCC GND osc basicring9
+V1 VCC GND 3.3V
+**** begin user architecture code
+
+.include /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+
+
+.control
+tran 1p 200n uic
+write tb_basicring9.raw
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  basicring9.sym # of pins=3
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/basicring9.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/basicring9.sch
+.subckt basicring9 VCC VSS osc_out
+*.opin osc_out
+*.iopin VCC
+*.iopin VSS
+x1 VCC VSS net1 osc_out inverter
+x2 VCC VSS net2 net1 inverter
+x3 VCC VSS net3 net2 inverter
+x4 VCC VSS net4 net3 inverter
+x5 VCC VSS net5 net4 inverter
+x6 VCC VSS net6 net5 inverter
+x7 VCC VSS net7 net6 inverter
+x8 VCC VSS net8 net7 inverter
+x9 VCC VSS osc_out net8 inverter
+.ends
+
+
+* expanding   symbol:  inverter.sym # of pins=4
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/inverter.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/inverter.sch
+.subckt inverter VCC VSS Y A
+*.iopin VCC
+*.iopin VSS
+*.ipin A
+*.opin Y
+XM1 Y A VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 Y A VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+.end
