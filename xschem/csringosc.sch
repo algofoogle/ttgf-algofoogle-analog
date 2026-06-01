@@ -5,7 +5,7 @@ V {}
 S {}
 F {}
 E {}
-N 280 -110 840 -110 {lab=osc_out}
+N 280 -110 840 -110 {lab=vbiasn}
 N 380 -100 860 -100 {lab=VSS}
 N 380 -260 860 -260 {lab=VCC}
 N 880 -180 890 -180 {lab=osc_out}
@@ -16,13 +16,13 @@ N 320 -180 340 -180 {lab=osc_out}
 N 890 -180 900 -180 {lab=osc_out}
 N 620 -100 620 -60 {lab=VSS}
 N 620 -290 620 -260 {lab=VCC}
-N 240 -140 280 -140 {lab=osc_out}
-N 280 -140 280 -110 {lab=osc_out}
+N 240 -140 280 -140 {lab=vbiasn}
+N 280 -140 280 -110 {lab=vbiasn}
 N 240 -80 240 -60 {lab=VSS}
-N 240 -220 240 -140 {lab=osc_out}
+N 240 -220 240 -140 {lab=vbiasn}
 N 240 -360 240 -340 {lab=VCC}
 N 360 -250 840 -250 {lab=vbiasp}
-N 240 -280 240 -220 {lab=osc_out}
+N 240 -280 240 -220 {lab=vbiasn}
 N 200 -250 360 -250 {lab=vbiasp}
 N 200 -310 200 -250 {lab=vbiasp}
 N 140 -310 200 -310 {lab=vbiasp}
@@ -32,7 +32,7 @@ N 100 -360 100 -340 {lab=VCC}
 N 100 -280 100 -220 {lab=vbiasp}
 N 100 -100 100 -80 {lab=VSS}
 N 840 -250 900 -250 {lab=vbiasp}
-N 840 -110 900 -110 {lab=osc_out}
+N 840 -110 900 -110 {lab=vbiasn}
 C {csrostage.sym} 370 -180 0 0 {name=x1}
 C {csrostage.sym} 430 -180 0 0 {name=x2}
 C {csrostage.sym} 490 -180 0 0 {name=x3}
@@ -101,7 +101,7 @@ C {lab_pin.sym} 100 -310 0 0 {name=p10 sig_type=std_logic lab=VCC text_size_0=0.
 C {lab_pin.sym} 100 -360 0 0 {name=p12 sig_type=std_logic lab=VCC}
 C {symbols/nfet_03v3.sym} 80 -190 0 0 {name=M4
 L=0.50u
-W=0.25u
+W=2.50u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"

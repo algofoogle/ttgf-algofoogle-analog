@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.0726838e-05
-x2=5.0748828e-05
+x1=0
+x2=10e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -44,11 +44,11 @@ value="
 C {devices/code_shown.sym} 350 -310 0 0 {name=NGSPICE only_toplevel=true
 value=".control
 save i(vcc) i(vin) vin vbiasp vbiasn osc
-tran 1p 51us
+tran 10p 51us
 write tb_csringosc.raw
 .endc"}
 C {launcher.sym} 700 -510 0 0 {name=h5
-descr="load waves" 
+descr="load waves NEW" 
 tclcommand="xschem raw_read $netlist_dir/tb_csringosc.raw tran"
 }
 C {lab_pin.sym} 70 -410 0 0 {name=p1 sig_type=std_logic lab=GND}
@@ -60,3 +60,7 @@ C {lab_pin.sym} 70 -470 0 0 {name=p6 sig_type=std_logic lab=VCC}
 C {lab_pin.sym} 150 -470 0 0 {name=p7 sig_type=std_logic lab=VIN}
 C {lab_pin.sym} 50 -270 0 0 {name=p8 sig_type=std_logic lab=VIN}
 C {lab_pin.sym} 160 -340 0 0 {name=p10 sig_type=std_logic lab=VCC}
+C {launcher.sym} 700 -480 0 0 {name=h1
+descr="load waves OLD" 
+tclcommand="xschem raw_read $netlist_dir/tb_csringosc-8ca5007.raw tran"
+}
