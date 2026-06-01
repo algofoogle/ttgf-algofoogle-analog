@@ -1,0 +1,74 @@
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/tb_csringosc.sch
+**.subckt tb_csringosc
+x1 VCC GND vbiasp VIN osc vbiasn csringosc
+V1 VCC GND 3.3
+V2 VIN GND PWL(0us 0.0v 0.1us 0.0v 2us 0.55v 10us 0.55v 15us 0.65v 50us 3.3v 51us 3.3v)
+**** begin user architecture code
+
+.include /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_typical
+* .lib /home/anton/ttsetup@ttgf26a/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_statistical
+
+
+.control
+save i(vcc) i(vin) vin vbiasp vbiasn osc
+tran 1p 51us
+write tb_csringosc.raw
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  csringosc.sym # of pins=6
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/csringosc.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/csringosc.sch
+.subckt csringosc VCC VSS vbiasp vin osc_out vbiasn
+*.opin osc_out
+*.ipin vin
+*.iopin VCC
+*.iopin VSS
+*.opin vbiasp
+*.opin vbiasn
+x1 VCC VSS vbiasp osc_out net1 vbiasn csrostage
+x2 VCC VSS vbiasp net1 net2 vbiasn csrostage
+x3 VCC VSS vbiasp net2 net3 vbiasn csrostage
+x4 VCC VSS vbiasp net3 net4 vbiasn csrostage
+x5 VCC VSS vbiasp net4 net5 vbiasn csrostage
+x6 VCC VSS vbiasp net5 net6 vbiasn csrostage
+x7 VCC VSS vbiasp net6 net7 vbiasn csrostage
+x8 VCC VSS vbiasp net7 net8 vbiasn csrostage
+x9 VCC VSS vbiasp net8 osc_out vbiasn csrostage
+XM1 vbiasn vbiasn VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 vbiasn vbiasp VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM3 vbiasp vbiasp VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM4 vbiasp vin net9 VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XR1 VSS net9 VSS ppolyf_u_3k r_width=1e-6 r_length=1e-6
+.ends
+
+
+* expanding   symbol:  csrostage.sym # of pins=6
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/csrostage.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/csrostage.sch
+.subckt csrostage VCC VSS VbiasP A Y VbiasN
+*.iopin VCC
+*.iopin VSS
+*.ipin A
+*.opin Y
+*.ipin VbiasP
+*.ipin VbiasN
+XM1 Y A net1 VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2 Y A net2 VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM3 net2 VbiasP VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM4 net1 VbiasN VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+.end
