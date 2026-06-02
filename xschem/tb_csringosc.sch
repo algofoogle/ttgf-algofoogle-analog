@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=10e-06
+x1=5.053589e-05
+x2=5.0552667e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -28,7 +28,7 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-}
+hcursor1_y=1.0017637}
 C {csringosc.sym} 160 -270 0 0 {name=x1}
 C {vsource.sym} 70 -440 0 0 {name=V1 value=3.3 savecurrent=false}
 C {lab_pin.sym} 270 -270 0 1 {name=p9 sig_type=std_logic lab=osc}
@@ -44,7 +44,7 @@ value="
 C {devices/code_shown.sym} 350 -310 0 0 {name=NGSPICE only_toplevel=true
 value=".control
 save i(vcc) i(vin) vin vbiasp vbiasn osc
-tran 10p 51us
+tran 1p 51us
 write tb_csringosc.raw
 .endc"}
 C {launcher.sym} 700 -510 0 0 {name=h5

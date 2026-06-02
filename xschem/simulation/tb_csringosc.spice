@@ -13,7 +13,7 @@ V2 VIN GND PWL(0us 0.0v 0.1us 0.0v 2us 0.55v 10us 0.55v 15us 0.65v 50us 3.3v 51u
 
 .control
 save i(vcc) i(vin) vin vbiasp vbiasn osc
-tran 1p 51us
+tran 3p 51us
 write tb_csringosc.raw
 .endc
 
@@ -45,7 +45,7 @@ XM2 vbiasn vbiasp VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/n
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 XM3 vbiasp vbiasp VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM4 vbiasp vin net9 VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XM4 vbiasp vin net9 VSS nfet_03v3 L=0.50u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 XR1 VSS net9 VSS ppolyf_u_3k r_width=1e-6 r_length=1e-6
 .ends
