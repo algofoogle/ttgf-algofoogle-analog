@@ -101,7 +101,7 @@ C {lab_pin.sym} 100 -310 0 0 {name=p10 sig_type=std_logic lab=VCC text_size_0=0.
 C {lab_pin.sym} 100 -360 0 0 {name=p12 sig_type=std_logic lab=VCC}
 C {symbols/nfet_03v3.sym} 80 -190 0 0 {name=M4
 L=0.50u
-W=10u
+W=0.25u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -122,7 +122,7 @@ C {opin.sym} 900 -250 0 0 {name=p16 lab=vbiasp}
 C {opin.sym} 900 -110 0 0 {name=p17 lab=vbiasn}
 C {symbols/nwell.sym} 100 -130 0 0 {name=R1
 W=1e-6
-L=20e-6
+L=2e-6
 model=nwell
 spiceprefix=X
 m=1}
