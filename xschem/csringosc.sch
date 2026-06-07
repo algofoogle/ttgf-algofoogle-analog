@@ -47,7 +47,7 @@ C {lab_pin.sym} 620 -60 0 0 {name=p2 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 620 -290 0 0 {name=p3 sig_type=std_logic lab=VCC}
 C {symbols/nfet_03v3.sym} 260 -110 0 1 {name=M1
 L=0.50u
-W=0.25u
+W=0.30u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -61,7 +61,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 220 -310 0 0 {name=M2
 L=0.50u
-W=0.50u
+W=0.60u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -84,7 +84,7 @@ C {iopin.sym} 70 -410 0 1 {name=p8 lab=VCC}
 C {iopin.sym} 70 -390 0 1 {name=p9 lab=VSS}
 C {symbols/pfet_03v3.sym} 120 -310 0 1 {name=M3
 L=0.50u
-W=0.50u
+W=0.60u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -101,7 +101,7 @@ C {lab_pin.sym} 100 -310 0 0 {name=p10 sig_type=std_logic lab=VCC text_size_0=0.
 C {lab_pin.sym} 100 -360 0 0 {name=p12 sig_type=std_logic lab=VCC}
 C {symbols/nfet_03v3.sym} 80 -190 0 0 {name=M4
 L=0.50u
-W=0.25u
+W=5.00u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -120,9 +120,9 @@ C {lab_pin.sym} 80 -130 0 0 {name=p14 sig_type=std_logic lab=VSS text_size_0=0.2
 C {lab_pin.sym} 100 -80 0 0 {name=p15 sig_type=std_logic lab=VSS}
 C {opin.sym} 900 -250 0 0 {name=p16 lab=vbiasp}
 C {opin.sym} 900 -110 0 0 {name=p17 lab=vbiasn}
-C {symbols/nwell.sym} 100 -130 0 0 {name=R1
+C {symbols/nplus_u.sym} 100 -130 0 0 {name=R1
 W=1e-6
-L=2e-6
-model=nwell
+L=1200e-6
+model=nplus_u
 spiceprefix=X
 m=1}

@@ -52,7 +52,7 @@ C {lab_pin.sym} 200 -170 0 1 {name=p3 sig_type=std_logic lab=VSS text_size_0=0.2
 }
 C {symbols/pfet_03v3.sym} 180 -360 0 0 {name=M3
 L=0.50u
-W=0.50u
+W=0.60u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -70,7 +70,7 @@ C {lab_pin.sym} 200 -420 0 1 {name=p8 sig_type=std_logic lab=VCC}
 C {lab_pin.sym} 200 -20 0 1 {name=p10 sig_type=std_logic lab=VSS}
 C {symbols/nfet_03v3.sym} 180 -80 0 0 {name=M4
 L=0.50u
-W=0.25u
+W=0.30u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
