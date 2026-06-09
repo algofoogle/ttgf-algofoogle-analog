@@ -13,8 +13,32 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.053589e-05
-x2=5.0552667e-05
+x1=-8.9333953e-07
+x2=4.4004739e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="osc
+vbiasp
+vbiasn
+vin"
+color="4 5 12 15"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+hcursor1_y=1.0017637}
+B 2 860 -930 1660 -530 {flags=graph
+y1=-0.072
+y2=3.5
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-8.9333953e-07
+x2=4.4004739e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -44,7 +68,7 @@ value="
 C {devices/code_shown.sym} 350 -310 0 0 {name=NGSPICE only_toplevel=true
 value=".control
 save i(vcc) i(vin) vin vbiasp vbiasn osc
-tran 1p 51us
+tran 10p 51us
 write tb_csringosc.raw
 .endc"}
 C {launcher.sym} 700 -510 0 0 {name=h5
