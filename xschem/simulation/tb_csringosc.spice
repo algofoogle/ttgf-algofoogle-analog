@@ -13,7 +13,7 @@ V2 VIN GND PWL(0us 0.0v 0.1us 0.0v 2us 0.55v 10us 0.55v 15us 0.65v 50us 3.3v 51u
 
 .control
 save i(vcc) i(vin) vin vbiasp vbiasn osc
-tran 3p 51us
+tran 10p 51us
 write tb_csringosc.raw
 .endc
 
@@ -34,20 +34,16 @@ x1 VCC VSS vbiasp osc_out net1 vbiasn csrostage
 x2 VCC VSS vbiasp net1 net2 vbiasn csrostage
 x3 VCC VSS vbiasp net2 net3 vbiasn csrostage
 x4 VCC VSS vbiasp net3 net4 vbiasn csrostage
-x5 VCC VSS vbiasp net4 net5 vbiasn csrostage
-x6 VCC VSS vbiasp net5 net6 vbiasn csrostage
-x7 VCC VSS vbiasp net6 net7 vbiasn csrostage
-x8 VCC VSS vbiasp net7 net8 vbiasn csrostage
-x9 VCC VSS vbiasp net8 osc_out vbiasn csrostage
-XM1 vbiasn vbiasn VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+x5 VCC VSS vbiasp net4 osc_out vbiasn csrostage
+XMNL vbiasn vbiasn VSS VSS nfet_03v3 L=0.30u W=0.60u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM2 vbiasn vbiasp VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMPL vbiasn vbiasp VCC VCC pfet_03v3 L=0.30u W=3.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM3 vbiasp vbiasp VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMPb vbiasp vbiasp VCC VCC pfet_03v3 L=0.28u W=4.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM4 vbiasp vin net9 VSS nfet_03v3 L=0.50u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMNc vbiasp vin net5 VSS nfet_03v3 L=0.70u W=30.00u nf=5 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XR1 VSS net9 VSS ppolyf_u_3k r_width=1e-6 r_length=1e-6
+XR1 VSS net5 VSS nplus_u r_width=1u r_length=180u
 .ends
 
 
@@ -61,13 +57,13 @@ XR1 VSS net9 VSS ppolyf_u_3k r_width=1e-6 r_length=1e-6
 *.opin Y
 *.ipin VbiasP
 *.ipin VbiasN
-XM1 Y A net1 VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMNi Y A net1 VSS nfet_03v3 L=0.40u W=0.80u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM2 Y A net2 VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMPi Y A net2 VCC pfet_03v3 L=0.40u W=1.60u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM3 net2 VbiasP VCC VCC pfet_03v3 L=0.50u W=0.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMPL net2 VbiasP VCC VCC pfet_03v3 L=0.30u W=3.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XM4 net1 VbiasN VSS VSS nfet_03v3 L=0.50u W=0.25u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMNL net1 VbiasN VSS VSS nfet_03v3 L=0.30u W=0.60u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 .ends
 

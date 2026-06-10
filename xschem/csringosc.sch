@@ -5,8 +5,8 @@ V {}
 S {}
 F {}
 E {}
-N 380 -100 860 -100 {lab=VSS}
-N 380 -260 860 -260 {lab=VCC}
+T {NOTE: 5 fingers
+(30u/0.7u effective)} 140 -200 0 0 0.2 0.2 {}
 N 670 -180 680 -180 {lab=osc_out}
 N 680 -180 680 -80 {lab=osc_out}
 N 320 -80 680 -80 {lab=osc_out}
@@ -33,6 +33,8 @@ N 360 -110 690 -110 {lab=vbiasn}
 N 360 -250 690 -250 {lab=vbiasp}
 N 280 -110 360 -110 {lab=vbiasn}
 N 640 -180 670 -180 {lab=osc_out}
+N 380 -260 620 -260 {lab=VCC}
+N 380 -100 620 -100 {lab=VSS}
 C {csrostage.sym} 370 -180 0 0 {name=x1}
 C {csrostage.sym} 430 -180 0 0 {name=x2}
 C {csrostage.sym} 490 -180 0 0 {name=x3}
@@ -41,7 +43,7 @@ C {csrostage.sym} 610 -180 0 0 {name=x5}
 C {opin.sym} 690 -180 0 0 {name=p1 lab=osc_out}
 C {lab_pin.sym} 620 -60 0 0 {name=p2 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 620 -290 0 0 {name=p3 sig_type=std_logic lab=VCC}
-C {symbols/nfet_03v3.sym} 260 -110 0 1 {name=M1
+C {symbols/nfet_03v3.sym} 260 -110 0 1 {name=MNL
 W=0.60u
 L=0.30u
 nf=1
@@ -55,7 +57,7 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {symbols/pfet_03v3.sym} 220 -310 0 0 {name=M2
+C {symbols/pfet_03v3.sym} 220 -310 0 0 {name=MPL
 W=3.00u
 L=0.30u
 nf=1
@@ -78,9 +80,9 @@ C {lab_pin.sym} 240 -360 0 1 {name=p6 sig_type=std_logic lab=VCC}
 C {ipin.sym} 60 -190 0 0 {name=p7 lab=vin}
 C {iopin.sym} 70 -410 0 1 {name=p8 lab=VCC}
 C {iopin.sym} 70 -390 0 1 {name=p9 lab=VSS}
-C {symbols/pfet_03v3.sym} 120 -310 0 1 {name=M3
-W=2.00u
-L=0.30u
+C {symbols/pfet_03v3.sym} 120 -310 0 1 {name=MPb
+W=4.00u
+L=0.28u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -95,10 +97,10 @@ spiceprefix=X
 C {lab_pin.sym} 100 -310 0 0 {name=p10 sig_type=std_logic lab=VCC text_size_0=0.2
 }
 C {lab_pin.sym} 100 -360 0 0 {name=p12 sig_type=std_logic lab=VCC}
-C {symbols/nfet_03v3.sym} 80 -190 0 0 {name=M4
-W=60.00u
+C {symbols/nfet_03v3.sym} 80 -190 0 0 {name=MNc
+W=30.00u
 L=0.70u
-nf=1
+nf=5
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
@@ -118,7 +120,7 @@ C {opin.sym} 690 -250 0 0 {name=p16 lab=vbiasp}
 C {opin.sym} 690 -110 0 0 {name=p17 lab=vbiasn}
 C {symbols/nplus_u.sym} 100 -130 0 0 {name=R1
 W=1u
-L=650u
+L=180u
 model=nplus_u
 spiceprefix=X
 m=1}

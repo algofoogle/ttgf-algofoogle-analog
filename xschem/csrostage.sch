@@ -17,7 +17,7 @@ N 200 -420 200 -390 {lab=VCC}
 N 200 -50 200 -20 {lab=VSS}
 N 100 -360 160 -360 {lab=VbiasP}
 N 100 -80 160 -80 {lab=VbiasN}
-C {symbols/nfet_03v3.sym} 180 -170 0 0 {name=M1
+C {symbols/nfet_03v3.sym} 180 -170 0 0 {name=MNi
 W=0.80u
 L=0.40u
 nf=1
@@ -31,7 +31,7 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {symbols/pfet_03v3.sym} 180 -270 0 0 {name=M2
+C {symbols/pfet_03v3.sym} 180 -270 0 0 {name=MPi
 W=1.60u
 L=0.40u
 nf=1
@@ -52,7 +52,7 @@ C {opin.sym} 350 -220 0 0 {name=p6 lab=Y}
 C {lab_pin.sym} 200 -360 0 1 {name=p7 sig_type=std_logic lab=VCC text_size_0=0.2}
 C {lab_pin.sym} 200 -170 0 1 {name=p3 sig_type=std_logic lab=VSS text_size_0=0.2
 }
-C {symbols/pfet_03v3.sym} 180 -360 0 0 {name=M3
+C {symbols/pfet_03v3.sym} 180 -360 0 0 {name=MPL
 W=3.00u
 L=0.30u
 nf=1
@@ -70,7 +70,7 @@ C {ipin.sym} 100 -360 0 0 {name=p9 lab=VbiasP}
 C {lab_pin.sym} 200 -270 0 1 {name=p2 sig_type=std_logic lab=VCC text_size_0=0.2}
 C {lab_pin.sym} 200 -420 0 1 {name=p8 sig_type=std_logic lab=VCC}
 C {lab_pin.sym} 200 -20 0 1 {name=p10 sig_type=std_logic lab=VSS}
-C {symbols/nfet_03v3.sym} 180 -80 0 0 {name=M4
+C {symbols/nfet_03v3.sym} 180 -80 0 0 {name=MNL
 W=0.60u
 L=0.30u
 nf=1
