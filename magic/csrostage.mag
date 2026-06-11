@@ -1,0 +1,133 @@
+magic
+tech gf180mcuD
+timestamp 1781183082
+<< nwell >>
+rect -26 42 39 120
+<< nmos >>
+rect -1 17 5 29
+rect 12 17 20 33
+<< pmos >>
+rect -1 51 5 111
+rect 12 65 20 97
+<< ndiff >>
+rect 7 29 12 33
+rect -11 27 -1 29
+rect -11 19 -9 27
+rect -4 19 -1 27
+rect -11 17 -1 19
+rect 5 17 12 29
+rect 20 31 30 33
+rect 20 19 23 31
+rect 28 19 30 31
+rect 20 17 30 19
+<< pdiff >>
+rect -11 109 -1 111
+rect -11 53 -9 109
+rect -4 53 -1 109
+rect -11 51 -1 53
+rect 5 97 10 111
+rect 5 65 12 97
+rect 20 95 30 97
+rect 20 67 23 95
+rect 28 67 30 95
+rect 20 65 30 67
+rect 5 51 10 65
+<< ndiffc >>
+rect -9 19 -4 27
+rect 23 19 28 31
+<< pdiffc >>
+rect -9 53 -4 109
+rect 23 67 28 95
+<< psubdiff >>
+rect -23 27 -11 29
+rect -23 19 -21 27
+rect -14 19 -11 27
+rect -23 17 -11 19
+<< nsubdiff >>
+rect -23 109 -11 111
+rect -23 53 -21 109
+rect -14 53 -11 109
+rect -23 51 -11 53
+<< psubdiffcont >>
+rect -21 19 -14 27
+<< nsubdiffcont >>
+rect -21 53 -14 109
+<< polysilicon >>
+rect -1 120 10 122
+rect -1 115 3 120
+rect 8 115 10 120
+rect -1 113 10 115
+rect -1 111 5 113
+rect 12 97 20 102
+rect -1 46 5 51
+rect 12 48 20 65
+rect 10 46 20 48
+rect 10 41 12 46
+rect 17 41 20 46
+rect 10 39 20 41
+rect -1 29 5 34
+rect 12 33 20 39
+rect -1 1 5 17
+rect 12 12 20 17
+rect -4 -1 5 1
+rect -4 -6 -2 -1
+rect 3 -6 5 -1
+rect -4 -8 5 -6
+<< polycontact >>
+rect 3 115 8 120
+rect 12 41 17 46
+rect -2 -6 3 -1
+<< metal1 >>
+rect -26 120 39 122
+rect -26 117 3 120
+rect 1 115 3 117
+rect 8 117 39 120
+rect 8 115 10 117
+rect 1 113 10 115
+rect -23 109 -4 111
+rect -23 108 -21 109
+rect -26 100 -21 108
+rect -23 53 -21 100
+rect -14 53 -9 109
+rect -4 100 39 108
+rect -4 53 -2 100
+rect 21 67 23 95
+rect 28 67 30 95
+rect 21 65 30 67
+rect 25 48 30 65
+rect -26 46 19 48
+rect -26 43 12 46
+rect 10 41 12 43
+rect 17 41 19 46
+rect 10 39 19 41
+rect 25 43 39 48
+rect 25 33 30 43
+rect 21 31 30 33
+rect -23 27 -2 29
+rect -23 19 -21 27
+rect -14 19 -9 27
+rect -4 19 -2 27
+rect 21 19 23 31
+rect 28 19 30 31
+rect -23 14 -2 19
+rect -26 6 39 14
+rect -4 -1 5 1
+rect -4 -3 -2 -1
+rect -26 -6 -2 -3
+rect 3 -3 5 -1
+rect 3 -6 39 -3
+rect -26 -8 39 -6
+<< labels >>
+flabel metal1 -26 100 -18 108 0 FreeSans 16 0 0 0 VCC
+port 0 nsew
+flabel metal1 -26 117 -18 122 0 FreeSans 12 0 0 0 VbiasP
+port 1 nsew
+flabel metal1 -26 6 -18 14 0 FreeSans 16 0 0 0 VSS
+port 2 nsew
+flabel metal1 -26 -8 -18 -3 0 FreeSans 12 0 0 0 VbiasN
+port 3 nsew
+flabel metal1 -26 43 -18 48 0 FreeSans 24 0 0 0 A
+port 4 nsew
+flabel metal1 31 43 39 48 0 FreeSans 24 0 0 0 Y
+port 5 nsew
+<< end >>
