@@ -1,0 +1,96 @@
+
+Circuit 1 cell pfet_03v3 and Circuit 2 cell pfet_03v3 are black boxes.
+
+Subcircuit pins:
+Circuit 1: pfet_03v3                       |Circuit 2: pfet_03v3                       
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes pfet_03v3 and pfet_03v3 are equivalent.
+
+Circuit 1 cell nfet_03v3 and Circuit 2 cell nfet_03v3 are black boxes.
+
+Subcircuit pins:
+Circuit 1: nfet_03v3                       |Circuit 2: nfet_03v3                       
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes nfet_03v3 and nfet_03v3 are equivalent.
+
+Circuit 1 cell ppolyf_u_1k and Circuit 2 cell ppolyf_u_1k are black boxes.
+
+Subcircuit pins:
+Circuit 1: ppolyf_u_1k                     |Circuit 2: ppolyf_u_1k                     
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes ppolyf_u_1k and ppolyf_u_1k are equivalent.
+
+Subcircuit summary:
+Circuit 1: csrostage                       |Circuit 2: csrostage                       
+-------------------------------------------|-------------------------------------------
+pfet_03v3 (2)                              |pfet_03v3 (2)                              
+nfet_03v3 (2)                              |nfet_03v3 (2)                              
+Number of devices: 4                       |Number of devices: 4                       
+Number of nets: 8                          |Number of nets: 8                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: csrostage                       |Circuit 2: csrostage                       
+-------------------------------------------|-------------------------------------------
+VSS                                        |VSS                                        
+VCC                                        |VCC                                        
+VbiasP                                     |VbiasP                                     
+VbiasN                                     |VbiasN                                     
+Y                                          |Y                                          
+A                                          |A                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes csrostage and csrostage are equivalent.
+Flattening unmatched subcell nfet_03v3_KT5AJW in circuit csringosc (0)(1 instance)
+Flattening unmatched subcell ppolyf_u_1k_ACAPAA in circuit csringosc (0)(1 instance)
+
+Class csringosc (0):  Merged 5 parallel devices.
+Class csringosc (0):  Merged 1 series devices.
+Class csringosc (1):  Merged 1 series devices.
+Subcircuit summary:
+Circuit 1: csringosc                       |Circuit 2: csringosc                       
+-------------------------------------------|-------------------------------------------
+csrostage (5)                              |csrostage (5)                              
+nfet_03v3 (7->2)                           |nfet_03v3 (2)                              
+ppolyf_u_1k (2->1)                         |ppolyf_u_1k (2->1)                         
+pfet_03v3 (2)                              |pfet_03v3 (2)                              
+Number of devices: 10                      |Number of devices: 10                      
+Number of nets: 11                         |Number of nets: 11                         
+---------------------------------------------------------------------------------------
+Resolving symmetries by property value.
+Resolving symmetries by pin name.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: csringosc                       |Circuit 2: csringosc                       
+-------------------------------------------|-------------------------------------------
+vin                                        |vin                                        
+osc_out                                    |osc_out                                    
+vbiasn                                     |vbiasn                                     
+VSS                                        |VSS                                        
+VCC                                        |VCC                                        
+vbiasp                                     |vbiasp                                     
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes csringosc and csringosc are equivalent.
+
+Final result: Circuits match uniquely.
+.

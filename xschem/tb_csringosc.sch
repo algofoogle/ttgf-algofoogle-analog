@@ -5,7 +5,7 @@ V {}
 S {}
 F {}
 E {}
-B 2 30 -930 830 -530 {flags=graph
+B 2 30 -930 830 -530 {flags=graph,unlocked
 y1=-0.011
 y2=3.4
 ypos1=0
@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1u
-x2=8u
+x1=4.7156874e-06
+x2=7.637983e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -30,15 +30,15 @@ logx=0
 logy=0
 hcursor1_y=1.00}
 B 2 860 -930 1660 -530 {flags=graph,unlocked
-y1=-0.013
-y2=3.4
+y1=-0.14
+y2=3.5
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=9u
-x2=11u
+x1=5.0546045e-05
+x2=5.0549563e-05
 divx=5
 subdivx=1
 xlabmag=1.0
