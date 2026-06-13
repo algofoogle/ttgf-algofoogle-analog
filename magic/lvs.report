@@ -59,6 +59,27 @@ A                                          |A
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
 Device classes csrostage and csrostage are equivalent.
+
+Subcircuit summary:
+Circuit 1: bufinv                          |Circuit 2: bufinv                          
+-------------------------------------------|-------------------------------------------
+pfet_03v3 (1)                              |pfet_03v3 (1)                              
+nfet_03v3 (1)                              |nfet_03v3 (1)                              
+Number of devices: 2                       |Number of devices: 2                       
+Number of nets: 4                          |Number of nets: 4                          
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: bufinv                          |Circuit 2: bufinv                          
+-------------------------------------------|-------------------------------------------
+Y                                          |Y                                          
+A                                          |A                                          
+VSS                                        |VSS                                        
+VCC                                        |VCC                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes bufinv and bufinv are equivalent.
 Flattening unmatched subcell nfet_03v3_KT5AJW in circuit csringosc (0)(1 instance)
 Flattening unmatched subcell ppolyf_u_1k_ACAPAA in circuit csringosc (0)(1 instance)
 
@@ -69,14 +90,13 @@ Subcircuit summary:
 Circuit 1: csringosc                       |Circuit 2: csringosc                       
 -------------------------------------------|-------------------------------------------
 csrostage (5)                              |csrostage (5)                              
+bufinv (2)                                 |bufinv (2)                                 
 nfet_03v3 (7->2)                           |nfet_03v3 (2)                              
 ppolyf_u_1k (2->1)                         |ppolyf_u_1k (2->1)                         
 pfet_03v3 (2)                              |pfet_03v3 (2)                              
-Number of devices: 10                      |Number of devices: 10                      
-Number of nets: 11                         |Number of nets: 11                         
+Number of devices: 12                      |Number of devices: 12                      
+Number of nets: 13                         |Number of nets: 13                         
 ---------------------------------------------------------------------------------------
-Resolving symmetries by property value.
-Resolving symmetries by pin name.
 Netlists match uniquely.
 
 Subcircuit pins:
@@ -84,10 +104,11 @@ Circuit 1: csringosc                       |Circuit 2: csringosc
 -------------------------------------------|-------------------------------------------
 vin                                        |vin                                        
 osc_out                                    |osc_out                                    
+osc_raw                                    |osc_raw                                    
 vbiasn                                     |vbiasn                                     
 VSS                                        |VSS                                        
-VCC                                        |VCC                                        
 vbiasp                                     |vbiasp                                     
+VCC                                        |VCC                                        
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.
 Device classes csringosc and csringosc are equivalent.

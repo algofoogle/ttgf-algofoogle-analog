@@ -11,6 +11,13 @@ X3 Y A a_280_590# VCC pfet_03v3 ad=0.8p pd=4.2u as=0.31652p ps=2.33043u w=1.6u l
 **devattr s=18200,670 d=32000,840
 .ends
 
+.subckt bufinv A Y VSS VCC
+X0 Y A VCC VCC pfet_03v3 ad=1.04p pd=5.04u as=1p ps=5u w=2u l=0.28u
+**devattr s=80000,1200 d=41600,1008
+X1 Y A VSS VSS nfet_03v3 ad=0.52p pd=3.04u as=0.5p ps=3u w=1u l=0.28u
+**devattr s=32000,800 d=20800,608
+.ends
+
 .subckt nfet_03v3_KT5AJW a_n52_n500# a_296_n592# a_680_n500# a_52_n592# a_n540_n500#
 + a_n436_n592# a_540_n592# a_n192_n592# a_n906_n686# a_436_n500# a_192_n500# a_n768_n500#
 + a_n680_n592# a_n296_n500#
@@ -33,12 +40,14 @@ X0 a_40_500# a_40_n622# a_n452_n834# ppolyf_u_1k r_width=1u r_length=5u
 X1 a_n240_500# a_n240_n622# a_n452_n834# ppolyf_u_1k r_width=1u r_length=5u
 .ends
 
-.subckt csringosc vin VCC VSS vbiasp vbiasn osc_out
-Xx1 VCC vbiasp VSS vbiasn osc_out x2/A csrostage
+.subckt csringosc vin VCC VSS vbiasp vbiasn osc_raw osc_out
+Xx1 VCC vbiasp VSS vbiasn osc_raw x2/A csrostage
 Xx2 VCC vbiasp VSS vbiasn x2/A x3/A csrostage
 Xx3 VCC vbiasp VSS vbiasn x3/A x4/A csrostage
 Xx4 VCC vbiasp VSS vbiasn x4/A x5/A csrostage
-Xx5 VCC vbiasp VSS vbiasn x5/A osc_out csrostage
+Xx5 VCC vbiasp VSS vbiasn x5/A osc_raw csrostage
+Xx6 osc_raw x7/A VSS VCC bufinv
+Xx7 x7/A osc_out VSS VCC bufinv
 XXMNc vbiasp vin m1_n2680_1360# vin vbiasp vin vin vin VSS vbiasp m1_n2680_1360# m1_n2680_1360#
 + vin m1_n2680_1360# nfet_03v3_KT5AJW
 XXR1a2 m1_n2960_210# m1_n2680_1360# m1_n2960_210# VSS VSS ppolyf_u_1k_ACAPAA

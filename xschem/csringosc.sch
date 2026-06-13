@@ -37,12 +37,18 @@ N 640 -180 670 -180 {lab=osc_out}
 N 380 -260 620 -260 {lab=VCC}
 N 380 -100 620 -100 {lab=VSS}
 N 100 -70 100 -60 {lab=VSS}
+N 720 -150 720 -130 {lab=VSS}
+N 720 -230 720 -210 {lab=VCC}
+N 820 -150 820 -130 {lab=VSS}
+N 820 -230 820 -210 {lab=VCC}
+N 770 -180 790 -180 {lab=#net1}
+N 870 -180 890 -180 {lab=osc_out}
 C {csrostage.sym} 370 -180 0 0 {name=x1}
 C {csrostage.sym} 430 -180 0 0 {name=x2}
 C {csrostage.sym} 490 -180 0 0 {name=x3}
 C {csrostage.sym} 550 -180 0 0 {name=x4}
 C {csrostage.sym} 610 -180 0 0 {name=x5}
-C {opin.sym} 690 -180 0 0 {name=p1 lab=osc_out}
+C {opin.sym} 890 -180 0 0 {name=p1 lab=osc_out}
 C {lab_pin.sym} 620 -60 0 0 {name=p2 sig_type=std_logic lab=VSS}
 C {lab_pin.sym} 620 -290 0 0 {name=p3 sig_type=std_logic lab=VCC}
 C {symbols/nfet_03v3.sym} 260 -110 0 1 {name=MNL
@@ -134,3 +140,10 @@ L=5u
 model=ppolyf_u_1k
 spiceprefix=X
 m=1}
+C {bufinv.sym} 720 -180 0 0 {name=x6}
+C {lab_pin.sym} 720 -230 0 1 {name=p19 sig_type=std_logic lab=VCC}
+C {lab_pin.sym} 720 -130 0 1 {name=p20 sig_type=std_logic lab=VSS}
+C {bufinv.sym} 820 -180 0 0 {name=x7}
+C {lab_pin.sym} 820 -230 0 1 {name=p21 sig_type=std_logic lab=VCC}
+C {lab_pin.sym} 820 -130 0 1 {name=p22 sig_type=std_logic lab=VSS}
+C {opin.sym} 680 -80 0 0 {name=p23 lab=osc_raw}

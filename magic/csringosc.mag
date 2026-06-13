@@ -1,7 +1,7 @@
 magic
 tech gf180mcuD
 magscale 1 5
-timestamp 1781263264
+timestamp 1781359482
 << nwell >>
 rect -165 -10 205 690
 << pwell >>
@@ -30,8 +30,7 @@ rect -80 110 -30 120
 rect -2 500 50 510
 rect -2 120 15 500
 rect 40 410 50 500
-rect 40 400 60 410
-rect 45 120 60 400
+rect 40 120 60 410
 rect -2 110 60 120
 rect 90 400 140 410
 rect 90 120 105 400
@@ -42,8 +41,7 @@ rect 285 185 310 225
 rect 370 185 395 225
 << pdiffc >>
 rect -70 120 -45 500
-rect 15 400 40 500
-rect 15 120 45 400
+rect 15 120 40 500
 rect 105 120 130 400
 << psubdiff >>
 rect 270 390 380 410
@@ -179,7 +177,7 @@ rect -1065 -40 -1060 60
 rect -105 100 -45 115
 rect 15 500 90 535
 rect 40 485 90 500
-rect 40 400 45 485
+rect 40 120 45 485
 rect 15 110 45 120
 rect 105 400 135 410
 rect 130 300 135 400
@@ -206,6 +204,7 @@ rect 540 250 585 270
 rect 540 225 545 250
 rect 2040 235 2045 280
 rect 2105 235 2110 280
+rect 2485 250 2530 275
 rect 2040 230 2110 235
 rect 490 220 545 225
 rect 370 175 430 180
@@ -351,6 +350,14 @@ use csrostage  x5
 timestamp 1781243031
 transform 1 0 1800 0 1 -5
 box -15 0 310 650
+use bufinv  x6
+timestamp 1781357371
+transform 1 0 2085 0 1 -5
+box -15 70 235 640
+use bufinv  x7
+timestamp 1781357371
+transform 1 0 2295 0 1 -5
+box -15 70 235 640
 use nfet_03v3_KT5AJW  XMNc
 timestamp 1781245240
 transform 1 0 -645 0 1 345
@@ -370,6 +377,8 @@ flabel metal1 2070 620 2110 645 0 FreeSans 80 0 0 0 vbiasp
 port 4 nsew
 flabel metal1 2070 -5 2110 20 0 FreeSans 80 0 0 0 vbiasn
 port 5 nsew
-flabel metal1 2070 245 2110 270 0 FreeSans 80 0 0 0 osc_out
+flabel metal1 2070 245 2110 270 0 FreeSans 80 0 0 0 osc_raw
 port 6 nsew
+flabel metal1 2485 250 2530 275 0 FreeSans 80 0 0 0 osc_out
+port 7 nsew
 << end >>

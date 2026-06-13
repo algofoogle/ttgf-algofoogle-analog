@@ -1,21 +1,23 @@
 ** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/csringosc.sch
-.subckt csringosc VCC VSS vbiasp vin osc_out vbiasn
-*.PININFO osc_out:O vin:I VCC:B VSS:B vbiasp:O vbiasn:O
-x1 VCC VSS vbiasp osc_out net1 vbiasn csrostage
-x2 VCC VSS vbiasp net1 net2 vbiasn csrostage
-x3 VCC VSS vbiasp net2 net3 vbiasn csrostage
-x4 VCC VSS vbiasp net3 net4 vbiasn csrostage
-x5 VCC VSS vbiasp net4 osc_out vbiasn csrostage
+.subckt csringosc VCC VSS vbiasp vin osc_out vbiasn osc_raw
+*.PININFO osc_out:O vin:I VCC:B VSS:B vbiasp:O vbiasn:O osc_raw:O
+x1 VCC VSS vbiasp osc_raw net2 vbiasn csrostage
+x2 VCC VSS vbiasp net2 net3 vbiasn csrostage
+x3 VCC VSS vbiasp net3 net4 vbiasn csrostage
+x4 VCC VSS vbiasp net4 net5 vbiasn csrostage
+x5 VCC VSS vbiasp net5 osc_raw vbiasn csrostage
 XMNL vbiasn vbiasn VSS VSS nfet_03v3 L=0.30u W=0.60u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 XMPL vbiasn vbiasp VCC VCC pfet_03v3 L=0.30u W=3.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 XMPb vbiasp vbiasp VCC VCC pfet_03v3 L=0.28u W=4.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XMNc vbiasp vin net5 VSS nfet_03v3 L=0.70u W=30.00u nf=6 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
+XMNc vbiasp vin net6 VSS nfet_03v3 L=0.70u W=30.00u nf=6 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
-XR2 net6 net5 VSS ppolyf_u_1k r_width=1u r_length=5u
-XR1 VSS net6 VSS ppolyf_u_1k r_width=1u r_length=5u
+XR2 net7 net6 VSS ppolyf_u_1k r_width=1u r_length=5u
+XR1 VSS net7 VSS ppolyf_u_1k r_width=1u r_length=5u
+x6 VCC VSS net1 osc_raw bufinv
+x7 VCC VSS osc_out net1 bufinv
 .ends
 
 * expanding   symbol:  csrostage.sym # of pins=6
@@ -30,6 +32,18 @@ XMPi Y A net2 VCC pfet_03v3 L=0.40u W=1.60u nf=1 ad='int((nf+1)/2) * W/nf * 0.18
 XMPL net2 VbiasP VCC VCC pfet_03v3 L=0.30u W=3.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 XMNL net1 VbiasN VSS VSS nfet_03v3 L=0.30u W=0.60u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ends
+
+
+* expanding   symbol:  bufinv.sym # of pins=4
+** sym_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/bufinv.sym
+** sch_path: /home/anton/projects/ttgf-algofoogle-analog/xschem/bufinv.sch
+.subckt bufinv VCC VSS Y A
+*.PININFO VCC:B VSS:B A:I Y:O
+XMNi Y A VSS VSS nfet_03v3 L=0.28u W=1u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XMPi Y A VCC VCC pfet_03v3 L=0.28u W=2u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
 .ends
 
